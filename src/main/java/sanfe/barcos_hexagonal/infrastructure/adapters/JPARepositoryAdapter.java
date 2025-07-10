@@ -40,8 +40,9 @@ public class JPARepositoryAdapter implements DockRepositoryPort, ShipRepositoryP
         Dock dock = findDockById(ship.getDockId().getId()).get();
         DockEntity dockEntity = DockMapper.fromDomainModel(dock);
         ShipEntity entity = ShipMapper.fromDomainModel(ship, dockEntity);
+        ShipEntity savedEntity = jpaShipRepository.save(entity);
 
-        return null;
+        return ShipMapper.toDomainModel(savedEntity);
     }
 
     @Override
