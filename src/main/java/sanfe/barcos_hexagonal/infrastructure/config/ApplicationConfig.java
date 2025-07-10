@@ -7,6 +7,7 @@ import sanfe.barcos_hexagonal.application.services.ShipService;
 import sanfe.barcos_hexagonal.application.usecasesimpl.*;
 import sanfe.barcos_hexagonal.domain.ports.out.DockRepositoryPort;
 import sanfe.barcos_hexagonal.domain.ports.out.ShipRepositoryPort;
+import sanfe.barcos_hexagonal.infrastructure.adapters.JPARepositoryAdapter;
 
 @Configuration
 public class ApplicationConfig {
@@ -29,5 +30,15 @@ public class ApplicationConfig {
                 new UpdateShipUseCaseImpl(shipRepositoryPort),
                 new RetrieveShipUseCaseImpl(shipRepositoryPort)
         );
+    }
+
+    @Bean
+    public DockRepositoryPort dockRepositoryPort(JPARepositoryAdapter jpaRepositoryAdapter){
+        return jpaRepositoryAdapter;
+    }
+
+    @Bean
+    public ShipRepositoryPort shipRepositoryPort(JPARepositoryAdapter jpaRepositoryAdapter){
+        return jpaRepositoryAdapter;
     }
 }

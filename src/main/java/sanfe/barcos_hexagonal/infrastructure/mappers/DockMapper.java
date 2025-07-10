@@ -13,7 +13,7 @@ public class DockMapper {
                 dock.getName(),
                 dock.getLocation(),
                 dock.getCapacity(),
-                dock.getOcuppiedCappacity(),
+                dock.getOcuppiedCapacity(),
                 null);  //Para evitar tocar las relaciones de otros barcos con el muelle
     }
 

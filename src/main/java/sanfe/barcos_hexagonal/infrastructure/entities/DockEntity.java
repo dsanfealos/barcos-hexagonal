@@ -15,7 +15,7 @@ public class DockEntity {
     private String location;
     private Integer capacity;
     private Integer ocuppiedCapacity;
-    @OneToMany(mappedBy = "dockerId", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "dockId", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<ShipEntity> ships;
 
     public DockEntity() {

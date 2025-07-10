@@ -1,7 +1,5 @@
 package sanfe.barcos_hexagonal.domain.models;
 
-import sanfe.barcos_hexagonal.infrastructure.entities.ShipEntity;
-
 import java.util.List;
 
 public class Dock {
@@ -9,20 +7,20 @@ public class Dock {
     private String name;
     private String location;
     private Integer capacity;
-    private Integer ocuppiedCappacity;
+    private Integer ocuppiedCapacity;
     private List<Ship> ships;
 
-    public Dock(Long id, String name, String location, Integer capacity, Integer ocuppiedCappacity, List<Ship> ships) {
+    public Dock(Long id, String name, String location, Integer capacity, Integer ocuppiedCapacity, List<Ship> ships) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.capacity = capacity;
-        this.ocuppiedCappacity = ocuppiedCappacity;
+        this.ocuppiedCapacity = ocuppiedCapacity;
         this.ships = ships;
     }
 
     public boolean isFull(){
-        return ocuppiedCappacity >= capacity;
+        return ocuppiedCapacity >= capacity;
     }
 
     public Long getId() {
@@ -57,12 +55,12 @@ public class Dock {
         this.capacity = capacity;
     }
 
-    public Integer getOcuppiedCappacity() {
-        return ocuppiedCappacity;
+    public Integer getOcuppiedCapacity() {
+        return ocuppiedCapacity;
     }
 
-    public void setOcuppiedCappacity(Integer ocuppiedCappacity) {
-        this.ocuppiedCappacity = ocuppiedCappacity;
+    public void setOcuppiedCapacity(Integer ocuppiedCapacity) {
+        this.ocuppiedCapacity = ocuppiedCapacity;
     }
 
     public List<Ship> getShips() {
