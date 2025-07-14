@@ -1,7 +1,6 @@
 package sanfe.barcos_hexagonal.infrastructure.entities;
 
 import jakarta.persistence.*;
-import sanfe.barcos_hexagonal.domain.models.Dock;
 
 import java.util.List;
 
@@ -68,5 +67,13 @@ public class DockEntity {
 
     public void setOcuppiedCapacity(Integer ocuppiedCapacity) {
         this.ocuppiedCapacity = ocuppiedCapacity;
+    }
+
+    public List<ShipEntity> getShips() {
+        return ships;
+    }
+
+    public void setShips(List<ShipEntity> ships) {
+        this.ships = ships;
     }
 }
