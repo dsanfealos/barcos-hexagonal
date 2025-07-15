@@ -11,7 +11,7 @@
 	<groupId>sanfe</groupId>
 	<artifactId>spring-ships-hexagonal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>barcos-hexagonal</name>
+	<name>spring-ships-hexagonal</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
