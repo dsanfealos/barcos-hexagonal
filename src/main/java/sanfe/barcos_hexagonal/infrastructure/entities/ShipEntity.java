@@ -1,8 +1,6 @@
 package sanfe.barcos_hexagonal.infrastructure.entities;
 
 import jakarta.persistence.*;
-import sanfe.barcos_hexagonal.domain.models.Dock;
-import sanfe.barcos_hexagonal.domain.models.Ship;
 
 @Entity
 public class ShipEntity {

@@ -2,13 +2,12 @@ package sanfe.barcos_hexagonal.infrastructure.mappers;
 
 import sanfe.barcos_hexagonal.domain.models.Dock;
 import sanfe.barcos_hexagonal.domain.models.Ship;
+import sanfe.barcos_hexagonal.infrastructure.dto.DockDto;
 import sanfe.barcos_hexagonal.infrastructure.entities.DockEntity;
 import sanfe.barcos_hexagonal.infrastructure.entities.ShipEntity;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DockMapper {
 
@@ -22,14 +21,14 @@ public class DockMapper {
                 null
         );
 
-        List<ShipEntity> shipEntities = new ArrayList<>();
+        List<ShipEntity> shipEntities;
         if (dock.getShips() != null && !dock.getShips().isEmpty()){
             shipEntities = dock.getShips().stream()
                     .map(ship -> ShipMapper.fromDomainModel(ship, dockEntity))
                     .toList();
             dockEntity.setShips(shipEntities);
         }
-        return dockEntity; //Para evitar tocar las relaciones de otros barcos con el muelle
+        return dockEntity;
     }
 
     public static Dock toDomainModel(DockEntity dockEntity){
@@ -50,7 +49,19 @@ public class DockMapper {
             dock.setShips(ships);
         }
 
+        return dock;
+    }
 
-        return dock;   //Para evitar problemas de nullPointerException en dominio
+    public static DockDto domainToDto(Dock dock){
+        return new DockDto(
+                dock.getId(),
+                dock.getName(),
+                dock.getLocation(),
+                dock.getCapacity(),
+                dock.getOcuppiedCapacity(),
+                dock.getShips().stream()
+                        .map(Ship::getId)
+                        .toList()
+        );
     }
 }

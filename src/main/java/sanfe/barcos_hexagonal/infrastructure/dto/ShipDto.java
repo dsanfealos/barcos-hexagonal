@@ -1,16 +1,27 @@
 package sanfe.barcos_hexagonal.infrastructure.dto;
 
 public class ShipDto {
+
+    private Long id;
     private String name;
-    private Long DockId;
+    private Long dockId;
     private Integer crewshipMembers;
     private String captain;
 
-    public ShipDto(String name, Long dockId, Integer crewshipMembers, String captain) {
+    public ShipDto(Long id, String name, Long dockId, Integer crewshipMembers, String captain) {
+        this.id = id;
         this.name = name;
-        DockId = dockId;
+        this.dockId = dockId;
         this.crewshipMembers = crewshipMembers;
         this.captain = captain;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -22,11 +33,11 @@ public class ShipDto {
     }
 
     public Long getDockId() {
-        return DockId;
+        return dockId;
     }
 
     public void setDockId(Long dockId) {
-        DockId = dockId;
+        this.dockId = dockId;
     }
 
     public Integer getCrewshipMembers() {

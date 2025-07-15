@@ -2,6 +2,7 @@ package sanfe.barcos_hexagonal.infrastructure.mappers;
 
 import sanfe.barcos_hexagonal.domain.models.Dock;
 import sanfe.barcos_hexagonal.domain.models.Ship;
+import sanfe.barcos_hexagonal.infrastructure.dto.ShipDto;
 import sanfe.barcos_hexagonal.infrastructure.entities.DockEntity;
 import sanfe.barcos_hexagonal.infrastructure.entities.ShipEntity;
 
@@ -35,5 +36,15 @@ public class ShipMapper {
                 shipEntity.getCrewshipMembers(),
                 shipEntity.getCaptain()
         );
+    }
+
+    public static ShipDto domainToDto(Ship ship){
+        return new ShipDto(
+                ship.getId(),
+                ship.getName(),
+                ship.getDockId().getId(),
+                ship.getCrewshipMembers(),
+                ship.getCaptain()
+                );
     }
 }
